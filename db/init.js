@@ -15,7 +15,6 @@ const ormconfig = {
   database: process.env.DB_NAME || 'defaultdb',
   username: process.env.DB_USER || 'postgres',
   password: process.env.DB_PASS || 'postgres',
-  ssl: process.env.DB_SSL || 'true'
 }
 
 require('typeorm').createConnection(ormconfig).then(async con => {
