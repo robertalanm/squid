@@ -1,4 +1,4 @@
-require('dotenv')
+require('dotenv').config({ path: require('find-config')('.env') }
 
 const ormconfig = {
   type: 'postgres',
