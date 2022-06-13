@@ -11,3 +11,5 @@ type HistoricalBalance @entity {
   balance: BigInt!
   date: DateTime!
 }
+
+
