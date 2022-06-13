@@ -14,7 +14,8 @@ const ormconfig = {
   port: process.env.DB_PORT ? parseInt(process.env.DB_PORT) : 5432,
   database: process.env.DB_NAME || 'defaultdb',
   username: process.env.DB_USER || 'postgres',
-  password: process.env.DB_PASS || 'postgres'
+  password: process.env.DB_PASS || 'postgres',
+  ssl: process.env.DB_SSL || 'true'
 }
 
 require('typeorm').createConnection(ormconfig).then(async con => {
