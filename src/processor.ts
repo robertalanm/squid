@@ -12,8 +12,8 @@ const processor = new SubstrateProcessor("kusama_balances");
 
 processor.setBatchSize(500);
 processor.setDataSource({
-  archive: lookupArchive("kusama")[0].url,
-  chain: "wss://kusama-rpc.polkadot.io",
+  archive: 'http://localhost:4010/v1/graphql',
+  chain: "ws://archivelb.opentensor.ai:9944",
 });
 
 processor.addEventHandler("balances.Transfer", async (ctx) => {
