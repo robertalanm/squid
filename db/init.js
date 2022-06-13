@@ -1,4 +1,4 @@
-require('dotenv/config')
+require('dotenv')
 
 const ormconfig = {
   type: 'postgres',
