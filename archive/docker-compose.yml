@@ -6,7 +6,6 @@ services:
     restart: always
     volumes:
       - /var/lib/postgresql/data
-      - ./types.json:/configs/types.json
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -37,7 +36,8 @@ services:
     #   - CHAIN_TYPES=typesChain.json
     #   - BUNDLE_TYPES=typesBundle.json
     #
-    # volumes:
+    volumes:
+      - ./types.json:/configs/types.json
     #   - ./typesAlias.json:/configs/typesAlias.json
     #   - ./typesSpec.json:/configs/typesSpec.json
     #   - ./typesChain.json:/configs/typesChain.json
