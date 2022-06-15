@@ -9,7 +9,7 @@ import { Account, HistoricalBalance } from "./model";
 import { BalancesTransferEvent } from "./types/events";
 
 const processor = new SubstrateProcessor("kusama_balances");
-// processor.setTypesBundle('../types.json');
+processor.setTypesBundle('../types.json');
 
 processor.setBatchSize(500);
 processor.setDataSource({

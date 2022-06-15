@@ -17,24 +17,24 @@ type Neuron @entity {
   id: ID!
   version: String!
   ip: String!
-  port: String!
-  ip_type: String!
-  uid: String!
-  modality: String!
+  port: Number!
+  ip_type: BigInt!
+  uid: BigInt!
+  modality: BigInt!
   hotkey: String!
   coldkey: String!
-  active: String!
-  last_update: String!
-  priority: String!
-  stake: String!
-  rank: String!
-  trust: String!
-  consensus: String!
-  incentive: String!
-  dividends: String!
-  emission: String!
-  bonds: String!
-  weights: String!
+  active: BigInt!
+  last_update: BigInt!
+  priority: BigInt!
+  stake: Float!
+  rank: Float!
+  trust: Float!
+  consensus: Float!
+  incentive: Float!
+  dividends: Float!
+  emission: Float!
+  bonds: [Float]!
+  weights: [Float]!
 }
 
 
