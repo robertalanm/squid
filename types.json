@@ -1,5 +1,5 @@
 {
-    types: {
+    "types": {
         "Balance": "u64",
         "NeuronMetadataOf": {
             "version": "u32",
