@@ -12,7 +12,7 @@ const processor = new SubstrateProcessor("kusama_balances");
 
 processor.setBatchSize(500);
 processor.setDataSource({
-  archive: 'http://localhost:4350/graphql',
+  archive: 'http://localhost:4350/v1/graphql',
   chain: "ws://archivelb.nakamoto.opentensor.ai:9944",
 });
 
