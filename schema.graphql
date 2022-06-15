@@ -12,8 +12,29 @@ type HistoricalBalance @entity {
   date: DateTime!
 }
 
-type NeuronMetadataOf @entity {
-  
+type Neuron @entity {
+  "Neuron address"
+  id: ID!
+  version: String!
+  ip: String!
+  port: String!
+  ip_type: String!
+  uid: String!
+  modality: String!
+  hotkey: String!
+  coldkey: String!
+  active: String!
+  last_update: String!
+  priority: String!
+  stake: String!
+  rank: String!
+  trust: String!
+  consensus: String!
+  incentive: String!
+  dividends: String!
+  emission: String!
+  bonds: String!
+  weights: String!
 }
 
 
