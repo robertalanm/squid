@@ -12,4 +12,8 @@ type HistoricalBalance @entity {
   date: DateTime!
 }
 
+type NeuronMetadataOf @entity {
+  
+}
+
 

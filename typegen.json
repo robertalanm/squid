@@ -35,5 +35,31 @@
     "subtensorModule.ImmunityPeriodSet",
     "subtensorModule.ResetBonds"
   ],
-  "calls": []
+  "calls": [],
+  "extrinsics": [
+    "subtensorModule.setWeights",
+    "subtensorModule.addStake",
+    "subtensorModule.removeStake",
+    "subtensorModule.serveAxon",
+    "subtensorModule.register",
+    "subtensorModule.sudoSetBlocksPerStep",
+    "subtensorModule.sudoSetBondsMovingAverage",
+    "subtensorModule.sudoSetDifficulty",
+    "subtensorModule.sudoSetAdjustmentInterval",
+    "subtensorModule.sudoSetActivityCutoff",
+    "subtensorModule.sudoTargetRegistrationsPerInterval",
+    "subtensorModule.sudoSetRho",
+    "subtensorModule.sudoSetKappa",
+    "subtensorModule.sudoSetMaxAllowedUids",
+    "subtensorModule.sudoSetMinAllowedWeights",
+    "subtensorModule.sudoSetMaxAllowedMaxMinRatio",
+    "subtensorModule.sudoSetValidatorBatchSize",
+    "subtensorModule.sudoSetValidatorSequenceLength",
+    "subtensorModule.sudoSetValidatorEpochLen",
+    "subtensorModule.sudoSetValidatorEpochsPerReset",
+    "subtensorModule.sudoSetIncentivePruningDenominator",
+    "subtensorModule.sudoSetStakePruningDenominator",
+    "subtensorModule.sudoSetImmunityPeriod",
+    "subtensorModule.sudoResetBonds"
+  ]
 }
