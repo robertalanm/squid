@@ -2,9 +2,7 @@
   "outDir": "src/types",
   "chainVersions": "subtensorVersions.json",
   "typesBundle": "types.json",
-  "events": [
-    "balances.Transfer"
-  ],
+  "events": true,
   "calls": []
 }
  
