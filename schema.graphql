@@ -17,7 +17,7 @@ type Neuron @entity {
   id: ID!
   version: String!
   ip: String!
-  port: Number!
+  port: BigInt!
   ip_type: BigInt!
   uid: BigInt!
   modality: BigInt!
