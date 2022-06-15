@@ -6,6 +6,7 @@ services:
     restart: always
     volumes:
       - /var/lib/postgresql/data
+      - ./types.json:/configs/types.json
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -30,14 +31,13 @@ services:
     # # Json files below are passed verbatim to ApiPromise.create() from @polkadot/api.
     # # Use any combination of those (defined in .env) file 
     #
-      - TYPES_JSON=./types.json
+      - TYPES_JSON=/configs/types.json
     #   - TYPES_ALIAS=typesAlias.json
     #   - SPEC_TYPES=typesSpec.json
     #   - CHAIN_TYPES=typesChain.json
     #   - BUNDLE_TYPES=typesBundle.json
     #
-    volumes:
-      - ./types.json:/configs/types.json
+    # volumes:
     #   - ./typesAlias.json:/configs/typesAlias.json
     #   - ./typesSpec.json:/configs/typesSpec.json
     #   - ./typesChain.json:/configs/typesChain.json
