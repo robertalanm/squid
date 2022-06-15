@@ -12,4 +12,5 @@ services:
   
   squid:
     build:
+      context: .
       dockerfile: Dockerfile
