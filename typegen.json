@@ -3,8 +3,7 @@
   "chainVersions": "subtensorVersions.json",
   "typesBundle": "types.json",
   "events": [
-    "balances.Transfer",
-    "subtensorModule"
+    "balances.Transfer"
   ],
   "calls": []
 }
