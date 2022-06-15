@@ -8,7 +8,7 @@ import { lookupArchive } from "@subsquid/archive-registry";
 import { Account, HistoricalBalance } from "./model";
 import { BalancesTransferEvent } from "./types/events";
 
-const processor = new SubstrateProcessor("kusama_balances");
+const processor = new SubstrateProcessor("subtensor");
 
 processor.setBatchSize(500);
 processor.setDataSource({
@@ -18,6 +18,10 @@ processor.setDataSource({
 });
 
 processor.setTypesBundle('types.json');
+
+processor.addEventHandler('subtensorModule', async (ctx) => {
+  console.log(ctx)
+})
 
 processor.run();
 
