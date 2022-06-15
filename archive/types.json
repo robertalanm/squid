@@ -22,4 +22,4 @@
         "bonds": "Vec<(u32, u64)>",
         "weights": "Vec<(u32, u32)>"
     }
-};
+}
