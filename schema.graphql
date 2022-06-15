@@ -24,7 +24,7 @@ type Neuron @entity {
   hotkey: String!
   coldkey: String!
   active: BigInt!
-  last_update: BigInt!
+  lastUpdate: BigInt!
   priority: BigInt!
   stake: Float!
   rank: Float!
