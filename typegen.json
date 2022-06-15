@@ -3,6 +3,7 @@
   "chainVersions": "subtensorVersions.json",
   "typesBundle": "types.json",
   "events": true,
-  "calls": []
+  "calls": [],
+  "storage": true
 }
  
