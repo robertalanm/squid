@@ -15,5 +15,5 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "$3000:3128"
+      - "3000:3128"
       - "4010:4010"
