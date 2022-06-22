@@ -67,7 +67,7 @@ type NeuronRegisteredArgs @entity {
 # }
 
 type NeuronRegisteredExtrinsic @entity {
-  id: ID!
+  id: String!
   name: String!
   method: String!
   section: String!
@@ -80,7 +80,7 @@ type NeuronRegisteredExtrinsic @entity {
 }
 
 type NeuronRegistered @entity {
-  id: ID!
+  id: String!
   name: String!
   method: String!
   section: String!
