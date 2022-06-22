@@ -66,8 +66,8 @@ processor.addEventHandler('subtensorModule.NeuronRegistered', async (ctx) => {
   const event = ctx.event;
   logger(event.extrinsic.args);
 
-  const coldkey = ""
-  const hotkey = ""
+  let coldkey = ""
+  let hotkey = ""
 
   for (const args of event.extrinsic.args) {
     if (args.name === "coldkey") {
