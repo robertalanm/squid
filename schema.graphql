@@ -84,9 +84,9 @@ type NeuronRegistered @entity {
   name: String!
   method: String!
   section: String!
-  # versionInfo: String!
+  versionInfo: String
   blockNumber: BigInt!
-  blockHash: String!
+  blockHash: String
   extrinsic: NeuronRegisteredExtrinsic!
 }
 
