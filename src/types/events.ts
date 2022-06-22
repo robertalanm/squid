@@ -1,64 +1,68 @@
 import assert from 'assert'
 import {EventContext, Result, deprecateLatest} from './support'
-import * as v9130 from './v9130'
 
-export class BalancesTransferEvent {
+export class SubtensorModuleNeuronRegisteredEvent {
   constructor(private ctx: EventContext) {
-    assert(this.ctx.event.name === 'balances.Transfer')
+    assert(this.ctx.event.name === 'subtensorModule.NeuronRegistered')
   }
 
   /**
-   *  Transfer succeeded (from, to, value, fees).
+   *  --- Event created when a new neuron account has been registered to 
+   *  the chain.
    */
-  get isV1020(): boolean {
-    return this.ctx._chain.getEventHash('balances.Transfer') === '72e6f0d399a72f77551d560f52df25d757e0643d0192b3bc837cbd91b6f36b27'
+  get isV100(): boolean {
+    return this.ctx._chain.getEventHash('subtensorModule.NeuronRegistered') === '0a0f30b1ade5af5fade6413c605719d59be71340cf4884f65ee9858eb1c38f6c'
   }
 
   /**
-   *  Transfer succeeded (from, to, value, fees).
+   *  --- Event created when a new neuron account has been registered to 
+   *  the chain.
    */
-  get asV1020(): [Uint8Array, Uint8Array, bigint, bigint] {
-    assert(this.isV1020)
-    return this.ctx._chain.decodeEvent(this.ctx.event)
-  }
-
-  /**
-   *  Transfer succeeded (from, to, value).
-   */
-  get isV1050(): boolean {
-    return this.ctx._chain.getEventHash('balances.Transfer') === 'dad2bcdca357505fa3c7832085d0db53ce6f902bd9f5b52823ee8791d351872c'
-  }
-
-  /**
-   *  Transfer succeeded (from, to, value).
-   */
-  get asV1050(): [Uint8Array, Uint8Array, bigint] {
-    assert(this.isV1050)
-    return this.ctx._chain.decodeEvent(this.ctx.event)
-  }
-
-  /**
-   * Transfer succeeded.
-   */
-  get isV9130(): boolean {
-    return this.ctx._chain.getEventHash('balances.Transfer') === '0ffdf35c495114c2d42a8bf6c241483fd5334ca0198662e14480ad040f1e3a66'
-  }
-
-  /**
-   * Transfer succeeded.
-   */
-  get asV9130(): {from: v9130.AccountId32, to: v9130.AccountId32, amount: bigint} {
-    assert(this.isV9130)
+  get asV100(): number {
+    assert(this.isV100)
     return this.ctx._chain.decodeEvent(this.ctx.event)
   }
 
   get isLatest(): boolean {
     deprecateLatest()
-    return this.isV9130
+    return this.isV100
   }
 
-  get asLatest(): {from: v9130.AccountId32, to: v9130.AccountId32, amount: bigint} {
+  get asLatest(): number {
     deprecateLatest()
-    return this.asV9130
+    return this.asV100
+  }
+}
+
+export class SubtensorModuleWeightsSetEvent {
+  constructor(private ctx: EventContext) {
+    assert(this.ctx.event.name === 'subtensorModule.WeightsSet')
+  }
+
+  /**
+   *  ---- Event created when a caller successfully set's their weights
+   *  on the chain.
+   */
+  get isV100(): boolean {
+    return this.ctx._chain.getEventHash('subtensorModule.WeightsSet') === '21ea0c8f2488eafafdea1de92b54cd17d8b1caff525e37616abf0ff93f11531d'
+  }
+
+  /**
+   *  ---- Event created when a caller successfully set's their weights
+   *  on the chain.
+   */
+  get asV100(): Uint8Array {
+    assert(this.isV100)
+    return this.ctx._chain.decodeEvent(this.ctx.event)
+  }
+
+  get isLatest(): boolean {
+    deprecateLatest()
+    return this.isV100
+  }
+
+  get asLatest(): Uint8Array {
+    deprecateLatest()
+    return this.asV100
   }
 }

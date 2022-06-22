@@ -12,6 +12,10 @@ type HistoricalBalance @entity {
   date: DateTime!
 }
 
+type NeuronRegistered @entity {
+  name: String!
+}
+
 type Neuron @entity {
   "Neuron address"
   id: ID!

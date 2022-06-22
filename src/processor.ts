@@ -5,8 +5,8 @@ import {
   SubstrateProcessor,
 } from "@subsquid/substrate-processor";
 import { lookupArchive } from "@subsquid/archive-registry";
-import { Account, HistoricalBalance, Neuron } from "./model";
-import { BalancesTransferEvent } from "./types/events";
+import { Account, HistoricalBalance, Neuron, NeuronRegistered } from "./model";
+import { SubtensorModuleNeuronRegisteredEvent } from "./types/events";
 
 const processor = new SubstrateProcessor("subtensor");
 
@@ -19,30 +19,48 @@ processor.setDataSource({
 
 processor.setTypesBundle('types.json');
 
-processor.addEventHandler('subtensorModule', async (ctx) => {
+const logger = (data: any) => {
+  console.log(data);
+}
+
+processor.addEventHandler('subtensorModule.NeuronRegistered', async (ctx) => {
+  const event = ctx.event;
+  logger(event);
+
   await ctx.store.save(
-    new Neuron({
-      id: ctx.event.data.address,
-      version: ctx.event.data.version,
-      ip: ctx.event.data.ip,
-      port: ctx.event.data.port,
-      ipType: ctx.event.data.ipType,
-      uid: ctx.event.data.uid,
-      modality: ctx.event.data.modality,
-      hotkey: ctx.event.data.hotkey,
-      coldkey: ctx.event.data.coldkey,
-      active: ctx.event.data.active,
-      lastUpdate: ctx.event.data.lastUpdate,
-      priority: ctx.event.data.priority,
-      stake: ctx.event.data.stake,
-      rank: ctx.event.data.rank,
-      trust: ctx.event.data.trust,
-      consensus: ctx.event.data.consensus,
-      incentive: ctx.event.data.incentive,
-      dividends: ctx.event.data.dividends,
-    }),
-  )
-})
+    new NeuronRegistered({
+      id: event.id,
+      name: event.name,
+    })
+  );
+
+
+});
+
+// processor.addEventHandler('subtensorModule', async (ctx) => {
+//   await ctx.store.save(
+//     new Neuron({
+//       id: ctx.event.data.address,
+//       version: ctx.event.data.version,
+//       ip: ctx.event.data.ip,
+//       port: ctx.event.data.port,
+//       ipType: ctx.event.data.ipType,
+//       uid: ctx.event.data.uid,
+//       modality: ctx.event.data.modality,
+//       hotkey: ctx.event.data.hotkey,
+//       coldkey: ctx.event.data.coldkey,
+//       active: ctx.event.data.active,
+//       lastUpdate: ctx.event.data.lastUpdate,
+//       priority: ctx.event.data.priority,
+//       stake: ctx.event.data.stake,
+//       rank: ctx.event.data.rank,
+//       trust: ctx.event.data.trust,
+//       consensus: ctx.event.data.consensus,
+//       incentive: ctx.event.data.incentive,
+//       dividends: ctx.event.data.dividends,
+//     }),
+//   )
+// })
 
 processor.run();
 

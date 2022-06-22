@@ -2,7 +2,10 @@
   "outDir": "src/types",
   "chainVersions": "subtensorVersions.json",
   "typesBundle": "types.json",
-  "events": true,
+  "events": [
+    "subtensorModule.NeuronRegistered",
+    "subtensorModule.WeightsSet"
+  ],
   "calls": [],
   "storage": true
 }
