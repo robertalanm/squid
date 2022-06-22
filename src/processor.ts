@@ -66,6 +66,18 @@ processor.addEventHandler('subtensorModule.NeuronRegistered', async (ctx) => {
   const event = ctx.event;
   logger(event.extrinsic.args);
 
+  const coldkey = ""
+  const hotkey = ""
+
+  for (const args of event.extrinsic.args) {
+    if (args.name === "coldkey") {
+      coldkey = args.value;
+    }
+    if (args.name === "hotkey") {
+      hotkey = args.value;
+    }
+  }
+
     
   await ctx.store.save(
     new NeuronRegistered({
@@ -78,6 +90,8 @@ processor.addEventHandler('subtensorModule.NeuronRegistered', async (ctx) => {
       blockNumber: event.blockNumber,
       blockHash: event.extrinsic.hash,
       immunityPeriod: event.extrinsic.era.immortalEra,
+      coldkey: coldkey,
+      hotkey: hotkey,
       // args: {
       //   id: event.id,
       //   name: event.extrinsic.args.name,

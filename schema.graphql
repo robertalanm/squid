@@ -33,7 +33,8 @@ type NeuronRegistered @entity {
   blockNumber: BigInt!
   blockHash: String!
   immunityPeriod: String!
-  args: [NeuronRegisteredArgs!]! @derivedFrom(field: "blockId")
+  coldkey: Account!
+  hotkey: Account!
 
 }
 
