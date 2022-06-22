@@ -1,5 +1,5 @@
-import {Entity as Entity_, Column as Column_, PrimaryColumn as PrimaryColumn_, ManyToOne as ManyToOne_, Index as Index_} from "typeorm"
-import {Era} from "./era.model"
+import {Entity as Entity_, Column as Column_, PrimaryColumn as PrimaryColumn_, OneToMany as OneToMany_} from "typeorm"
+import * as marshal from "./marshal"
 import {NeuronRegisteredArgs} from "./neuronRegisteredArgs.model"
 
 @Entity_()
@@ -23,14 +23,15 @@ export class NeuronRegistered {
   @Column_("text", {nullable: false})
   versionInfo!: string
 
-  @Index_()
-  @ManyToOne_(() => Era, {nullable: false})
-  era!: Era
+  @Column_("numeric", {transformer: marshal.bigintTransformer, nullable: false})
+  blockNumber!: bigint
 
   @Column_("text", {nullable: false})
-  signer!: string
+  blockHash!: string
 
-  @Index_()
-  @ManyToOne_(() => NeuronRegisteredArgs, {nullable: false})
-  args!: NeuronRegisteredArgs
+  @Column_("text", {nullable: false})
+  immunityPeriod!: string
+
+  @OneToMany_(() => NeuronRegisteredArgs, e => e.blockId)
+  args!: NeuronRegisteredArgs[]
 }

@@ -18,6 +18,7 @@ type Era @entity {
 
 type NeuronRegisteredArgs @entity {
   id: ID!
+  blockId: NeuronRegistered!
   name: String!
   type: String!
   value: String!
@@ -32,7 +33,7 @@ type NeuronRegistered @entity {
   blockNumber: BigInt!
   blockHash: String!
   immunityPeriod: String!
-  args: [NeuronRegisteredArgs!]!
+  args: [NeuronRegisteredArgs!]! @derivedFrom(field: "blockId")
 
 }
 

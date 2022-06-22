@@ -1,4 +1,5 @@
-import {Entity as Entity_, Column as Column_, PrimaryColumn as PrimaryColumn_} from "typeorm"
+import {Entity as Entity_, Column as Column_, PrimaryColumn as PrimaryColumn_, ManyToOne as ManyToOne_, Index as Index_} from "typeorm"
+import {NeuronRegistered} from "./neuronRegistered.model"
 
 @Entity_()
 export class NeuronRegisteredArgs {
@@ -8,6 +9,10 @@ export class NeuronRegisteredArgs {
 
   @PrimaryColumn_()
   id!: string
+
+  @Index_()
+  @ManyToOne_(() => NeuronRegistered, {nullable: false})
+  blockId!: NeuronRegistered
 
   @Column_("text", {nullable: false})
   name!: string
