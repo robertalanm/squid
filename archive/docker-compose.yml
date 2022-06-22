@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: postgres
 
   indexer:
-    image: subsquid/hydra-indexer:next
+    image: subsquid/hydra-indexer:4
     restart: unless-stopped
     environment:
       - WORKERS_NUMBER=5
@@ -49,7 +49,7 @@ services:
     command: >
       sh -c "yarn db:bootstrap && yarn start:prod"
   indexer-gateway:
-    image: subsquid/hydra-indexer-gateway:5
+    image: subsquid/hydra-indexer-gateway:next
     restart: unless-stopped
     depends_on:
       - redis
@@ -68,7 +68,7 @@ services:
       - HYDRA_INDEXER_STATUS_SERVICE=http://indexer-status-service:8081/status
 
   indexer-status-service:
-    image: subsquid/hydra-indexer-status-service:4
+    image: subsquid/hydra-indexer-status-service:next
     restart: unless-stopped
     depends_on:
       - redis
