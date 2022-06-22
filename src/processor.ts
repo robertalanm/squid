@@ -23,7 +23,7 @@ processor.setDataSource({
 processor.setTypesBundle('types.json');
 
 const logger = (data: any) => {
-  console.log(data.extrinsic.args);
+  console.log(data);
 }
 
 processor.addEventHandler('subtensorModule.NeuronRegistered', async (ctx) => {
@@ -38,15 +38,15 @@ processor.addEventHandler('subtensorModule.NeuronRegistered', async (ctx) => {
       method: event.method,
       section: event.section,
       versionInfo: event.versionInfo,
-      era: new Era({
+      era: {
         immortalEra: event.era.immortalEra,
-      }),
+      },
       signer: event.signer,
-      args: new NeuronRegisteredArgs({
+      args: {
         name: event.args.name,
         type: event.args.type,
         value: event.args.value,
-      }),
+      },
     })
   );
 
