@@ -64,7 +64,7 @@ const logger = (data: any) => {
 
 processor.addEventHandler('subtensorModule.NeuronRegistered', async (ctx) => {
   const event = ctx.event;
-  logger(event);
+  logger(event.extrinsic.args);
 
     
   await ctx.store.save(
@@ -78,12 +78,12 @@ processor.addEventHandler('subtensorModule.NeuronRegistered', async (ctx) => {
       blockNumber: event.blockNumber,
       blockHash: event.extrinsic.hash,
       immunityPeriod: event.extrinsic.era.immortalEra,
-      args: {
-        id: event.id,
-        name: event.extrinsic.args.name,
-        type: event.extrinsic.args.type,
-        value: event.extrinsic.args.value,
-      },
+      // args: {
+      //   id: event.id,
+      //   name: event.extrinsic.args.name,
+      //   type: event.extrinsic.args.type,
+      //   value: event.extrinsic.args.value,
+      // },
     })
   );
 
