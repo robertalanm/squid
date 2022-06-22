@@ -66,18 +66,18 @@ type NeuronRegisteredArgs @entity {
 #   }
 # }
 
-type NeuronRegisteredExtrinsic @entity {
-  id: ID
-  name: String!
-  method: String!
-  section: String!
-  versionInfo: String
-  era: Era
-  signer: String
-  args: NeuronRegisteredArgs
-  hash: String
-  indexInBlock: BigInt
-}
+# type NeuronRegisteredExtrinsic @entity {
+#   id: ID!
+#   name: String!
+#   method: String!
+#   section: String!
+#   versionInfo: String
+#   era: Era
+#   signer: String
+#   args: NeuronRegisteredArgs
+#   hash: String
+#   indexInBlock: BigInt
+# }
 
 type NeuronRegistered @entity {
   id: ID!
@@ -87,7 +87,7 @@ type NeuronRegistered @entity {
   versionInfo: String
   blockNumber: BigInt!
   blockHash: String
-  extrinsic: NeuronRegisteredExtrinsic!
+  extrinsic: Object!
 }
 
 # type Neuron @entity {
