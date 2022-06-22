@@ -12,8 +12,26 @@ type HistoricalBalance @entity {
   date: DateTime!
 }
 
-type NeuronRegistered @entity {
+type Era @entity {
+  immortalEra: String!
+}
+
+type NeuronRegisteredArgs @entity {
   name: String!
+  type: String!
+  value: String!
+}
+
+type NeuronRegistered @entity {
+  id: ID!
+  name: String!
+  method: String!
+  section: String!
+  versionInfo: String!
+  era: Era!
+  signer: String!
+  args: NeuronRegisteredArgs!
+
 }
 
 type Neuron @entity {

@@ -1,4 +1,6 @@
 export * from "./account.model"
 export * from "./historicalBalance.model"
+export * from "./era.model"
+export * from "./neuronRegisteredArgs.model"
 export * from "./neuronRegistered.model"
 export * from "./neuron.model"
