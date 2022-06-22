@@ -22,19 +22,19 @@ type NeuronRegisteredArgs @entity {
   value: String!
 }
 
-# type NeuronRegisteredOld @entity {
-#   id: ID!
-#   name: String!
-#   method: String!
-#   section: String!
-#   versionInfo: String!
-#   blockNumber: BigInt!
-#   blockHash: String!
-#   era: Era!
-#   signer: String!
-#   args: NeuronRegisteredArgs!
+type NeuronRegistered @entity {
+  id: ID!
+  name: String!
+  method: String!
+  section: String!
+  versionInfo: String!
+  blockNumber: BigInt!
+  blockHash: String!
+  era: Era!
+  signer: String!
+  args: NeuronRegisteredArgs!
 
-# }
+}
 
 # The schema allows the following query:
 # {
@@ -79,16 +79,16 @@ type NeuronRegisteredArgs @entity {
 #   indexInBlock: BigInt
 # }
 
-type NeuronRegistered @entity {
-  id: ID!
-  name: String!
-  method: String!
-  section: String!
-  versionInfo: String
-  blockNumber: BigInt!
-  blockHash: String
-  extrinsic: Object!
-}
+# type NeuronRegistered @entity {
+#   id: ID!
+#   name: String!
+#   method: String!
+#   section: String!
+#   versionInfo: String
+#   blockNumber: BigInt!
+#   blockHash: String
+#   extrinsic: Object!
+# }
 
 # type Neuron @entity {
 #   "Neuron address"
