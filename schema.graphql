@@ -31,7 +31,6 @@ type NeuronRegistered @entity {
   blockNumber: BigInt!
   blockHash: String!
   era: Era!
-  signer: String!
   args: NeuronRegisteredArgs!
 
 }
