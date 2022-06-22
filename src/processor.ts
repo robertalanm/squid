@@ -20,7 +20,7 @@ processor.setDataSource({
 processor.setTypesBundle('types.json');
 
 const logger = (data: any) => {
-  console.log(data);
+  console.log(data.extrinsic.args);
 }
 
 processor.addEventHandler('subtensorModule.NeuronRegistered', async (ctx) => {
