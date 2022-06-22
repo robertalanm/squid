@@ -30,7 +30,7 @@ type NeuronRegistered @entity {
   versionInfo: String!
   blockNumber: BigInt!
   blockHash: String!
-  era: Era!
+  immunityPeriod: String!
   args: NeuronRegisteredArgs!
 
 }

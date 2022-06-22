@@ -41,7 +41,7 @@ processor.addEventHandler('subtensorModule.NeuronRegistered', async (ctx) => {
       indexInBlock: event.indexInBlock,
       blockNumber: event.blockNumber,
       blockHash: event.extrinsic.hash,
-      era: event.extrinsic.era,
+      immunityPeriod: event.extrinsic.era.immoralEra,
       args: event.extrinsic.args,
     })
   );
