@@ -1,3 +1,6 @@
+// ts-ignore whole file
+// @ts-nocheck
+
 import * as ss58 from "@subsquid/ss58";
 import {
   EventHandlerContext,
@@ -6,7 +9,7 @@ import {
 } from "@subsquid/substrate-processor";
 import { lookupArchive } from "@subsquid/archive-registry";
 import { Account, HistoricalBalance, Era, NeuronRegisteredArgs, NeuronRegistered } from "./model";
-import { Era, NeuronRegisteredArgs } from "./types/events";
+// import { Era, NeuronRegisteredArgs } from "./types/events";
 
 const processor = new SubstrateProcessor("subtensor");
 
@@ -27,21 +30,22 @@ processor.addEventHandler('subtensorModule.NeuronRegistered', async (ctx) => {
   const event = ctx.event;
   logger(event);
 
+    
   await ctx.store.save(
     new NeuronRegistered({
-      id: event.data.id,
-      name: event.data.name,
-      method: event.data.method,
-      section: event.data.section,
-      versionInfo: event.data.versionInfo,
+      id: event.id,
+      name: event.name,
+      method: event.method,
+      section: event.section,
+      versionInfo: event.versionInfo,
       era: new Era({
-        immortalEra: event.data.era.immortalEra,
+        immortalEra: event.era.immortalEra,
       }),
-      signer: event.data.signer,
+      signer: event.signer,
       args: new NeuronRegisteredArgs({
-        name: event.data.args.name,
-        type: event.data.args.type,
-        value: event.data.args.value,
+        name: event.args.name,
+        type: event.args.type,
+        value: event.args.value,
       }),
     })
   );
