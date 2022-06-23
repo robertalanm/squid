@@ -24,3 +24,15 @@ type Registration @entity {
   hotkey: String!
 
 }
+
+type Weights @entity {
+  id: ID!
+  name: String!
+  versionInfo: String!
+  blockNumber: BigInt!
+  blockHash: String!
+  immunityPeriod: String!
+  coldkey: String!
+  hotkey: String!
+
+}

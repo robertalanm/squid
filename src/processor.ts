@@ -62,7 +62,7 @@ processor.addEventHandler('subtensorModule.NeuronRegistered', async (ctx) => {
   );
 });
 
-processor.addEventHandler('subtensorModule.weightsSet', async (ctx) => {
+processor.addEventHandler('subtensorModule.WeightsSet', async (ctx) => {
   const event = ctx.event;
 
   logger(event);
