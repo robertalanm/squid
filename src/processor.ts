@@ -65,6 +65,7 @@ processor.addEventHandler('subtensorModule.NeuronRegistered', async (ctx) => {
 processor.addEventHandler('subtensorModule.WeightsSet', async (ctx) => {
   const event = ctx.event;
 
+  logger(event)
 
   const args = event.extrinsic?.args;
 
@@ -73,7 +74,7 @@ processor.addEventHandler('subtensorModule.WeightsSet', async (ctx) => {
   const versionInfo = event.extrinsic.versionInfo;
   const blockNumber = event.blockNumber;
   const blockHash = event.extrinsic.hash;
-  const coldkey = event.params.args.coldkey;
+  const coldkey = event.params[0].coldkey;
   const weights = args[args.length - 1].value;
   const type = args[args.length - 1].type;
 
