@@ -49,7 +49,7 @@ processor.addEventHandler('subtensorModule.NeuronRegistered', async (ctx) => {
       versionInfo: event.extrinsic.versionInfo,
       blockNumber: event.blockNumber,
       blockHash: event.extrinsic.hash,
-      immunityPeriod: event.extrinsic.era.immortalEra,
+      // immunityPeriod: event.extrinsic.era.immortalEra,
       coldkey: coldkey,
       hotkey: hotkey,
       // args: {
@@ -65,7 +65,15 @@ processor.addEventHandler('subtensorModule.NeuronRegistered', async (ctx) => {
 processor.addEventHandler('subtensorModule.WeightsSet', async (ctx) => {
   const event = ctx.event;
 
-  logger(event);
+  logger(event.extrinsic.args);
+
+  const id = event.id;
+  const name = event.name;
+  const versionInfo = event.extrinsic.versionInfo;
+  const blockNumber = event.blockNumber;
+  const blockHash = event.extrinsic.hash;
+  const coldkey = event.params.args.coldkey;
+
 })
 
 // processor.addEventHandler('subtensorModule', async (ctx) => {

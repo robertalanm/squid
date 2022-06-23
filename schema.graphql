@@ -19,7 +19,7 @@ type Registration @entity {
   versionInfo: String!
   blockNumber: BigInt!
   blockHash: String!
-  immunityPeriod: String!
+  # immunityPeriod: String!
   coldkey: String!
   hotkey: String!
 
@@ -31,8 +31,6 @@ type Weights @entity {
   versionInfo: String!
   blockNumber: BigInt!
   blockHash: String!
-  immunityPeriod: String!
   coldkey: String!
-  hotkey: String!
 
 }
