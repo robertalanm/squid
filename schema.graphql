@@ -32,5 +32,8 @@ type Weights @entity {
   blockNumber: BigInt!
   blockHash: String!
   coldkey: String!
+  weights: [BigInt!]
+  type: String!
+
 
 }

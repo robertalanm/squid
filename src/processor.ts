@@ -8,7 +8,7 @@ import {
   SubstrateProcessor,
 } from "@subsquid/substrate-processor";
 import { lookupArchive } from "@subsquid/archive-registry";
-import { Account, HistoricalBalance, Era, NeuronRegisteredArgs, Registration } from "./model";
+import { Account, HistoricalBalance, Era, Weights, Registration } from "./model";
 
 
 const processor = new SubstrateProcessor("subtensor");
@@ -65,7 +65,8 @@ processor.addEventHandler('subtensorModule.NeuronRegistered', async (ctx) => {
 processor.addEventHandler('subtensorModule.WeightsSet', async (ctx) => {
   const event = ctx.event;
 
-  logger(event.extrinsic.args);
+
+  const args = event.extrinsic?.args;
 
   const id = event.id;
   const name = event.name;
@@ -73,6 +74,21 @@ processor.addEventHandler('subtensorModule.WeightsSet', async (ctx) => {
   const blockNumber = event.blockNumber;
   const blockHash = event.extrinsic.hash;
   const coldkey = event.params.args.coldkey;
+  const weights = args[args.length - 1].value;
+  const type = args[args.length - 1].type;
+
+  await ctx.store.save(
+    new Weights({
+      id: id,
+      name: name,
+      versionInfo: versionInfo,
+      blockNumber: blockNumber,
+      blockHash: blockHash,
+      coldkey: coldkey,
+      weights: weights,
+      type: type,
+    })
+  );
 
 })
 
