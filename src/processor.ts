@@ -74,7 +74,7 @@ processor.addEventHandler('subtensorModule.WeightsSet', async (ctx) => {
   const versionInfo = event.extrinsic.versionInfo;
   const blockNumber = event.blockNumber;
   const blockHash = event.extrinsic.hash;
-  const coldkey = event.params[0].coldkey;
+  const coldkey = event.params[0].value;
   const weights = args[args.length - 1].value;
   const type = args[args.length - 1].type;
 
